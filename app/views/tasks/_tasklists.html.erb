@@ -1,17 +1,11 @@
-<ul class="list-unstyled">
-<% tasks.each do |task| %>
-<li class="media mb-3">
-  <img class="mr-2 rounded" src="<62f5e77388a4bb136b97d4e2636376f5 />" alt="">
-  <div class="media-body">
-    <div>
-      <%= link_to task.user.name, user_path(task.user) %>
- <% if @messages.any? %>
+
+ <% if @tasks.any? %>
   <table class="table table-striped">
     <thead>
       <tr>
         <th>id</th>
-        <th>タイトル</th>
-        <th>メッセージ</th>
+        <th>タスク</th>
+        <th>ステータス</th>
       </tr>
     </thead>
     <tbody>
@@ -26,8 +20,8 @@
 </table>
 <% end %>
 <div>
-<%= paginate @messages %>
+<%= paginate @tasks %>
 </div>
-<% end %>
 
-<%= link_to '新規メッセージの投稿', new_message_path, class: 'btn btn-primary' %>
+
+<%= link_to '新規タスクの追加', new_task_path, class: 'btn btn-primary' %>
